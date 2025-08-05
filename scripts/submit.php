@@ -1,12 +1,17 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name  = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
+$host = "RDS-ENDPOINT-HERE";
+$user = "admin";
+$pass = "password123";
+$dbname = "mydb";
 
-    echo "<h2>Form Submitted Successfully</h2>";
-    echo "<p>Name: $name</p>";
-    echo "<p>Email: $email</p>";
-} else {
-    echo "<h2>No data submitted.</h2>";
-}
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) die("Connection failed");
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+
+$sql = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
+$conn->query($sql);
+echo "Registration successful!";
 ?>
+

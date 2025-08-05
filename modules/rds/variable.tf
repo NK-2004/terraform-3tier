@@ -1,20 +1,6 @@
-variable "username" {
-  type = string
-}
-
-variable "password" {
-  type = string
-}
-
-variable "db_name" {
-  type = string
-}
-
-variable "db_sg" {
-  type = string
-}
-
-variable "subnet_ids" {
-  type = list(string)
-}
+variable "private_subnet_ids" {}
+variable "db_name" {}
+variable "db_user" {}
+variable "db_pass" {}
+variable "db_sg_id" {}
 
